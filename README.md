@@ -61,7 +61,7 @@ jupyter lab --ip=0.0.0.0 --no-browser
 
   
 # Результат  
-Ссылка на проект: https://github.com/W1ldRage15/mle-project-sprint-4-v001.git  
+Ссылка на проект: https://github.com/W1ldRage15/mle-recsys-project.git  
 S3_BUCKET_NAME:s3-student-mle-20240729-52fe31e1ec
 
 # Сервис рекомендаций
