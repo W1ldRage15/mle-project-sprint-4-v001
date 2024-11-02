@@ -56,7 +56,6 @@ cover/
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -129,6 +128,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.venv_recsys_start
 
 # Spyder project settings
 .spyderproject
