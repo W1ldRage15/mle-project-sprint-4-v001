@@ -15,7 +15,8 @@ class EventStore:
             user_events = self.events[user_id]
         except KeyError:
             user_events = []
-        self.events[user_id] = [track_id] + user_events[: self.max_events_per_user]
+        if track_id not in user_events:
+            self.events[user_id] = [track_id] + user_events[: self.max_events_per_user]
 
     def get(self, user_id, k):
         """
@@ -26,7 +27,7 @@ class EventStore:
         except KeyError:
             user_events = []
 
-        return user_events
+        return user_events[:k]
         
 
 events_store = EventStore()

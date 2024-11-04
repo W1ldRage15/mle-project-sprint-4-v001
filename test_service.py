@@ -16,9 +16,12 @@ for event_track_id in event_track_ids:
                          params={"user_id": user_id, "track_id": event_track_id})
 
 params = {"user_id": user_id, 'k': 10}
-resp_offline = requests.post(recommendations_url + "/recommendations_offline", headers=headers, params=params)
-resp_online = requests.post(recommendations_url + "/recommendations_online", headers=headers, params=params)
-resp_blended = requests.post(recommendations_url + "/recommendations", headers=headers, params=params)
+try:
+    resp_offline = requests.post(recommendations_url + "/recommendations_offline", headers=headers, params=params)
+    resp_online = requests.post(recommendations_url + "/recommendations_online", headers=headers, params=params)
+    resp_blended = requests.post(recommendations_url + "/recommendations", headers=headers, params=params)
+except requests.exceptions.RequestException as e:  
+    raise SystemExit(e)
 
 recs_offline = resp_offline.json()["recs"]
 recs_online = resp_online.json()["recs"]
@@ -35,10 +38,12 @@ logger.info('Finished for user without personal recs')
 user_id = 3
 
 params = {"user_id": user_id, 'k': 10}
-resp_offline = requests.post(recommendations_url + "/recommendations_offline", headers=headers, params=params)
-resp_online = requests.post(recommendations_url + "/recommendations_online", headers=headers, params=params)
-resp_blended = requests.post(recommendations_url + "/recommendations", headers=headers, params=params)
-
+try:
+    resp_offline = requests.post(recommendations_url + "/recommendations_offline", headers=headers, params=params)
+    resp_online = requests.post(recommendations_url + "/recommendations_online", headers=headers, params=params)
+    resp_blended = requests.post(recommendations_url + "/recommendations", headers=headers, params=params)
+except requests.exceptions.RequestException as e:  
+    raise SystemExit(e)
 recs_offline = resp_offline.json()["recs"]
 recs_online = resp_online.json()["recs"]
 recs_blended = resp_blended.json()["recs"]
@@ -60,10 +65,12 @@ for event_track_id in event_track_ids:
                          params={"user_id": user_id, "track_id": event_track_id})
     
 params = {"user_id": user_id, 'k': 10}
-resp_offline = requests.post(recommendations_url + "/recommendations_offline", headers=headers, params=params)
-resp_online = requests.post(recommendations_url + "/recommendations_online", headers=headers, params=params)
-resp_blended = requests.post(recommendations_url + "/recommendations", headers=headers, params=params)
-
+try:
+    resp_offline = requests.post(recommendations_url + "/recommendations_offline", headers=headers, params=params)
+    resp_online = requests.post(recommendations_url + "/recommendations_online", headers=headers, params=params)
+    resp_blended = requests.post(recommendations_url + "/recommendations", headers=headers, params=params)
+except requests.exceptions.RequestException as e:  
+    raise SystemExit(e)
 recs_offline = resp_offline.json()["recs"]
 recs_online = resp_online.json()["recs"]
 recs_blended = resp_blended.json()["recs"]

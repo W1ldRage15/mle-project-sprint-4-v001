@@ -37,7 +37,7 @@ class Recommendations:
             self._stats["request_default_count"] += 1
             logger.info(f'{user_id} top_pop: {recs}')
         except:
-            logger.error("No recommendations found")
+            logger.info("No recommendations found")
             recs = []
 
         return recs

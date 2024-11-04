@@ -1,10 +1,16 @@
 INFO:rec_service:Loading recommendations, type: personal
+INFO:features_service:Loading data, type: similar
 INFO:rec_service:Loaded
 INFO:rec_service:Loading recommendations, type: default
 INFO:rec_service:Loaded
+INFO:features_service:Loaded
+INFO:features_service:Ready!
 INFO:rec_service:2085 top_pop: [83063895, 93126179, 81848875, 84382282, 65851540, 60292250, 78426489, 76434671, 75944934, 51516485]
 INFO:rec_service:2085 top_pop: [83063895, 93126179, 81848875, 84382282, 65851540, 60292250, 78426489, 76434671, 75944934, 51516485]
 INFO:rec_service:3 personal: [78194999, 75944934, 84382282, 78608850, 75630144, 78426489, 76434671, 78824202, 75642961, 80153541]
 INFO:rec_service:3 personal: [78194999, 75944934, 84382282, 78608850, 75630144, 78426489, 76434671, 78824202, 75642961, 80153541]
 INFO:rec_service:4 personal: [87080374, 83278715, 85006130, 85327144, 83934422, 92133060, 85905587, 85350472, 87065637, 87577154]
 INFO:rec_service:4 personal: [87080374, 83278715, 85006130, 85327144, 83934422, 92133060, 85905587, 85350472, 87065637, 87577154]
+INFO:features_service:Loading data, type: similar
+INFO:features_service:Loaded
+INFO:features_service:Ready!

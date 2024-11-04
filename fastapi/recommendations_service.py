@@ -44,16 +44,22 @@ async def recommendations_online(user_id: int, k: int = 100):
     Возвращает список онлайн-рекомендаций длиной k для пользователя user_id
     """
     headers = {"Content-type": "application/json", "Accept": "text/plain"}
-
+    
     params = {"user_id": user_id, "k": k}
-    resp = requests.post(events_store_url + "/get", headers=headers, params=params)
+    try:
+        resp = requests.post(events_store_url + "/get", headers=headers, params=params)
+    except requests.exceptions.RequestException as e:  
+        raise SystemExit(e)
     events = resp.json()
     events = events["events"]
     items = []
     scores = []
     for track_id in events:
         params = {"track_id": track_id, "k": k}
-        resp = requests.post(features_store_url +"/similar_items", headers=headers, params=params)
+        try:
+            resp = requests.post(features_store_url +"/similar_items", headers=headers, params=params)
+        except requests.exceptions.RequestException as e:  
+            raise SystemExit(e)
         item_similar_items = resp.json()
         items += item_similar_items["track_id_2"]
         scores += item_similar_items["score"]
@@ -94,7 +100,7 @@ async def recommendations(user_id: int, k: int = 100):
         
     if min_length < k:
         for i in range(k-min_length):
-            if (k-min_length)%2==0:
+            if min_length == len(recs_online):
                 recs_blended.append(recs_offline[min_length+i])
             else:
                 recs_blended.append(recs_online[min_length+i])
